@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #e3f3fd;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+p {
+  font-size: 16px;
+}
+
+main {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  main {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+main .container {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+@media (min-width: 768px) {
+  main .container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    margin-left: 60px !important;
+    margin-right: 60px !important;
+  }
+  main .container > div {
+    width: 50% !important;
+  }
+}
+main .container .calculator {
+  padding: 30px 20px;
+}
+main .container .calculator .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+@media (max-width: 450px) {
+  main .container .calculator .head {
+    flex-wrap: wrap;
+  }
+}
+main .container .calculator .head h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #122f3f;
+  text-transform: capitalize;
+}
+main .container .calculator .head button {
+  text-transform: capitalize;
+  font-weight: 300;
+  color: #6b94a8;
+  border: none;
+  background: none;
+  outline: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+main .container .calculator form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+@media (min-width: 768px) {
+  main .container .calculator form .width-50 {
+    display: flex;
+    gap: 20px;
+  }
+  main .container .calculator form .width-50 .field {
+    width: calc(50% - 10px) !important;
+  }
+}
+main .container .calculator form .field {
+  width: 100%;
+}
+main .container .calculator form h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b94a8;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+main .container .calculator form label {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 37px;
+}
+main .container .calculator form label input {
+  border: 1px solid #6b94a8;
+  outline: none;
+  background: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  transition: 0.3s linear;
+}
+main .container .calculator form label input.amount {
+  padding-left: 40px;
+}
+main .container .calculator form label input.input-text {
+  display: block;
+  width: 100%;
+}
+main .container .calculator form label input.error {
+  border-color: #d73328;
+}
+main .container .calculator form label input.error + span {
+  color: white;
+  background-color: #d73328;
+}
+main .container .calculator form label input:focus {
+  border-color: #d7da2f;
+}
+main .container .calculator form label input:focus + span {
+  color: white;
+  background-color: #d7da2f;
+}
+main .container .calculator form label span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 1px;
+  top: 1px;
+  padding: 0 10px;
+  text-align: center;
+  background-color: #e3f3fd;
+  font-size: 16px;
+  color: #122f3f;
+  transition: 0.3s linear;
+}
+main .container .calculator form label span.left {
+  left: 1px;
+  border-radius: 4px 0 0 4px;
+}
+main .container .calculator form label span.right {
+  right: 1px;
+  border-radius: 0 4px 4px 0;
+}
+main .container .calculator form label.radio {
+  border: 1px solid #6b94a8;
+  border-radius: 4px;
+  padding: 10px 20px 10px 40px;
+  height: auto;
+  font-size: 16px;
+  font-weight: 600;
+  color: #122f3f;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+main .container .calculator form label.radio:last-of-type {
+  margin-top: 10px;
+}
+main .container .calculator form label.radio:hover {
+  border-color: #d7da2f;
+}
+main .container .calculator form label.radio::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  outline: 1px solid #6b94a8;
+  background-color: white;
+  outline-offset: 3px;
+  transition: 0.3s linear;
+  border-radius: 50%;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+main .container .calculator form label.radio.checked {
+  border-color: #d7da2f;
+  background-color: rgba(215, 51, 40, 0.1);
+}
+main .container .calculator form label.radio.checked::before {
+  outline-color: #d7da2f;
+  background-color: #d7da2f;
+}
+main .container .calculator form label.radio input {
+  position: absolute;
+  opacity: 0;
+}
+main .container .calculator form .err-msg {
+  font-size: 14px;
+  font-weight: 300;
+  color: #d73328;
+  margin-bottom: -2px;
+  opacity: 0;
+}
+main .container .calculator form .calculate-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  outline: none;
+  background-color: #d7da2f;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #122f3f;
+  text-transform: capitalize;
+  cursor: pointer;
+  width: fit-content;
+}
+@media (max-width: 375px) {
+  main .container .calculator form .calculate-btn {
+    padding: 10px 15px !important;
+  }
+  main .container .calculator form .calculate-btn img {
+    width: 16px;
+    height: 16px;
+  }
+}
+main .container .result-shower {
+  background-color: #122f3f;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  main .container .result-shower {
+    border-radius: 0 0 0 50px;
+  }
+}
+main .container .result-shower h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+  text-align: center;
+}
+main .container .result-shower p {
+  text-align: center;
+  color: #9abed5;
+}
+main .container .result-shower.completed {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+main .container .result-shower.completed h2 {
+  text-align: left;
+}
+main .container .result-shower.completed p {
+  text-align: left;
+}
+main .container .result-shower .box {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #173a4f;
+  width: 100%;
+  border-top: 2px solid #d7da2f;
+}
+main .container .result-shower .box h3 {
+  font-size: 16px;
+  font-weight: 300;
+  color: #9abed5;
+  margin-bottom: 10px;
+}
+main .container .result-shower .box .monthly {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #4e6e7e;
+}
+main .container .result-shower .box .monthly span {
+  display: block;
+  font-size: 26px;
+  font-weight: 600;
+  color: #d7da2f;
+}
+main .container .result-shower .box .total {
+  margin-top: 20px;
+}
+main .container .result-shower .box .total span {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: #3e52a3;
+}
+
+/*# sourceMappingURL=main.css.map */
